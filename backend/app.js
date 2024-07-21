@@ -13,7 +13,7 @@ const corsOptions = {
 app.use(cors())
 app.use(express.json());
 
-mongoose.connect('mongodb+srv://kenilakbari54:kenil1234@cluster0.nc8jac2.mongodb.net/', {
+mongoose.connect('', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(() => {
