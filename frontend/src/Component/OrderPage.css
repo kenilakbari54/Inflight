@@ -1,0 +1,59 @@
+.order-page {
+  padding: 20px;
+}
+
+.order-page h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.order-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.order-card {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.order-card-header {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.order-card-header h2 {
+  margin: 0;
+}
+
+.order-card-header p {
+  margin: 0;
+  color: #555;
+}
+
+.order-card-body {
+  margin-bottom: 10px;
+}
+
+.order-card-body p {
+  margin: 5px 0;
+}
+
+.order-card-footer {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.order-card-footer p {
+  margin: 0;
+  color: #555;
+}

@@ -1,0 +1,30 @@
+/* .vendor-order-page {
+  padding: 20px;
+}
+
+.order-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.order-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  width: 300px;
+}
+
+.order-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.order-card-body {
+  margin-top: 10px;
+}
+
+.order-card-footer {
+  margin-top: 10px;
+} */

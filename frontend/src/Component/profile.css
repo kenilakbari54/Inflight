@@ -1,0 +1,57 @@
+/* Profile.css */
+
+.profile-container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.profile-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.profile-name {
+  font-size: 28px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.profile-role {
+  font-size: 18px;
+  color: #777;
+  margin: 5px 0 0 0;
+}
+
+.profile-details {
+  margin-top: 20px;
+}
+
+.profile-details h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.profile-details p {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+.profile-details strong {
+  font-weight: bold;
+  color: #333;
+}
