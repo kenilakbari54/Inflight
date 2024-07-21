@@ -3,17 +3,13 @@ import express, { response } from 'express'
 import Order from '../model/Order.js';
 const router = express.Router();
 import Razorpay from 'razorpay'
-// const razorpay = new Razorpay({
-//     key_id: 'rzp_test_El0CiMj4TAxwPS',
-//     key_secret: 'ycTLbUtbyj5wiijBH7rW87Hx',
-// });
-// Create a new order
+
 router.post('/', async (req, res) => {
     try {
         const order = new Order(req.body);
         const razorpay = new Razorpay({
-            key_id: 'rzp_test_El0CiMj4TAxwPS',
-            key_secret: 'ycTLbUtbyj5wiijBH7rW87Hx',
+            key_id: '',
+            key_secret: '',
         });
         const options = {
             amount: order.TotalAmount * 100, // Amount in smallest currency unit (e.g., paise for INR)
