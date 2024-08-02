@@ -3,7 +3,8 @@ import express, { response } from 'express'
 import Order from '../model/Order.js';
 const router = express.Router();
 import Razorpay from 'razorpay'
-
+import env from 'dotenv'
+env.config()
 // Create a new order
 router.post('/', async (req, res) => {
     try {
