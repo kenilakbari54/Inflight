@@ -10,8 +10,8 @@ router.post('/', async (req, res) => {
     try {
         const order = new Order(req.body);
         const razorpay = new Razorpay({
-            key_id: process.env.key_id,
-            key_secret: process.env.key_secret,
+            key_id: `${process.env.key_id}`,
+            key_secret: `${process.env.key_secret}`,
         });
         const options = {
             amount: order.TotalAmount * 100, // Amount in smallest currency unit (e.g., paise for INR)
