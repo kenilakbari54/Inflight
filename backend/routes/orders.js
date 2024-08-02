@@ -4,12 +4,13 @@ import Order from '../model/Order.js';
 const router = express.Router();
 import Razorpay from 'razorpay'
 
+// Create a new order
 router.post('/', async (req, res) => {
     try {
         const order = new Order(req.body);
         const razorpay = new Razorpay({
-            key_id: '',
-            key_secret: '',
+            key_id: process.env.key_id,
+            key_secret: process.env.key_secret,
         });
         const options = {
             amount: order.TotalAmount * 100, // Amount in smallest currency unit (e.g., paise for INR)
@@ -70,8 +71,8 @@ router.patch('/:id', async (req, res) => {
 router.get('/payment/:paymentId', async (req, res) => {
     const { paymentId } = req.params;
     const razorpay = new Razorpay({
-        key_id: 'rzp_test_El0CiMj4TAxwPS',
-        key_secret: 'ycTLbUtbyj5wiijBH7rW87Hx',
+        key_id: process.env.key_id,
+        key_secret: process.env.key_secret,
     });
     try {
         const payment = await razorpay.payments.fetch(paymentId)
