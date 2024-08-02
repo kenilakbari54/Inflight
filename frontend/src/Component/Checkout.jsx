@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './checkout.css';
 import { authContext } from './AuthContext';
+import { toast } from 'react-toastify';
 
 const Checkout = () => {
   const navigate = useNavigate();
@@ -66,7 +67,7 @@ const Checkout = () => {
       let config = {
         method: 'POST',
         maxBodyLength: Infinity,
-        url: 'http://localhost:5000/api/orders/',
+        url: 'https://inflightcatering-system.onrender.com/api/orders/',
         headers: {
           'Content-Type': 'application/json',
         },
@@ -76,6 +77,7 @@ const Checkout = () => {
       const { data } = await axios.request(config);
 
       console.log('Order creation response:', data);
+      toast.success('Order Placed');
 
       // Ensure the order ID is not undefined
       if (data && data._id && data.order_id) {
@@ -110,12 +112,16 @@ const Checkout = () => {
         setResponseId(response.razorpay_payment_id);
         try {
           // Update the order with the razorpay_payment_id
-          await axios.patch(`http://localhost:5000/api/orders/${orderId}`, {
-            razorpay_payment_id: response.razorpay_payment_id,
-          });
+          await axios.patch(
+            `https://inflightcatering-system.onrender.com/api/orders/${orderId}`,
+            {
+              razorpay_payment_id: response.razorpay_payment_id,
+            }
+          );
           console.log(response.razorpay_payment_id);
           console.log(response);
           navigate('/order-success');
+          toast.success('Payment Successfully');
           localStorage.removeItem('cartItems');
         } catch (error) {
           console.error('Error updating order with payment ID:', error);

@@ -21,7 +21,7 @@ const Home = () => {
     const fetchMenus = async () => {
       try {
         const response = await axios.get(
-          'http://localhost:5000/api/vendors/menus/all'
+          'https://inflightcatering-system.onrender.com/api/vendors/menus/all'
         );
         setMenus(response.data);
       } catch (error) {
@@ -50,6 +50,7 @@ const Home = () => {
 
   return (
     <>
+      <br />
       <div>
         <div id="sb-dynamic-content" className="sb-transition-fade">
           {/* banner */}
@@ -172,7 +173,7 @@ const Home = () => {
                     you expect
                   </h2>
                   <p className="sb-text sb-mb-30">
-                    Welcome to <b>Aimers</b>, where exceptional service and
+                    Welcome to <b>AeroEats</b>, where exceptional service and
                     unparalleled quality come together to elevate your inflight
                     dining experience. As the leading provider of inflight
                     catering services, we pride ourselves on delivering the
@@ -185,7 +186,7 @@ const Home = () => {
                     masterpiece of flavor and presentation.
                   </p>
                   <p className="sb-text sb-mb-60">
-                    At <b>Aimers</b>, we understand the importance of
+                    At <b>AeroEats</b>, we understand the importance of
                     punctuality and reliability in the aviation industry. Our
                     state-of-the-art kitchens and logistics systems are designed
                     to meet the unique demands of inflight catering, ensuring
@@ -196,7 +197,7 @@ const Home = () => {
                     making sure that your needs are met with the utmost
                     professionalism and care.
                   </p>
-                  Aimers
+                  AeroEats
                 </div>
               </div>
             </div>

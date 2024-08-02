@@ -18,7 +18,7 @@ const PartnersDash = () => {
     setLoading(true);
     try {
       const res = await fetch(
-        `http://localhost:5000/api/vendors/menus/vendor/${user._id}`,
+        `https://inflightcatering-system.onrender.com/api/vendors/menus/vendor/${user._id}`,
         {
           method: 'GET',
           headers: {
@@ -92,13 +92,16 @@ const PartnersDash = () => {
     setLoading(true);
 
     try {
-      const res = await fetch(`http://localhost:5000/api/vendors/menus`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+      const res = await fetch(
+        `https://inflightcatering-system.onrender.com/api/vendors/menus`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        }
+      );
       const result = await res.json();
       if (!res.ok) {
         throw new Error(result.message);
@@ -116,7 +119,7 @@ const PartnersDash = () => {
     setLoading(true);
     try {
       const res = await fetch(
-        `http://localhost:5000/api/vendors/menus/${menuId}`,
+        `https://inflightcatering-system.onrender.com/api/vendors/menus/${menuId}`,
         {
           method: 'PUT',
           headers: {
@@ -143,7 +146,7 @@ const PartnersDash = () => {
     setLoading(true);
     try {
       const res = await fetch(
-        `http://localhost:5000/api/vendors/menus/${menuId}`,
+        `https://inflightcatering-system.onrender.com/api/vendors/menus/${menuId}`,
         {
           method: 'DELETE',
           headers: {

@@ -7,12 +7,13 @@ const VendorOrder = () => {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
   const { user } = useContext(authContext);
+  const [revenue, setRevenue] = useState(0);
 
   useEffect(() => {
     const fetchOrders = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/orders/vendor/${user._id}`
+          `https://inflightcatering-system.onrender.com/api/orders/vendor/${user._id}`
         );
         const ordersWithTime = response.data.map((order) => ({
           ...order,
@@ -22,6 +23,12 @@ const VendorOrder = () => {
           ),
         }));
         setOrders(ordersWithTime);
+        console.log(ordersWithTime);
+        const totalRevenue = ordersWithTime.reduce(
+          (sum, order) => sum + order.TotalAmount,
+          0
+        );
+        setRevenue(totalRevenue);
         setLoading(false);
       } catch (error) {
         console.error('Error fetching orders:', error);
@@ -35,7 +42,7 @@ const VendorOrder = () => {
   const handleStatusChange = async (orderId, newStatus) => {
     try {
       await axios.patch(
-        `http://localhost:5000/api/orders/orders/${orderId}/status`,
+        `https://inflightcatering-system.onrender.com/api/orders/orders/${orderId}/status`,
         {
           status: newStatus,
         }
@@ -99,7 +106,10 @@ const VendorOrder = () => {
       <br />
 
       <div className="vendor-order-page">
-        <h1 style={{ fontSize: '40px' }}>Vendor Orders</h1>
+        <h2 style={{ fontSize: '35px' }}>
+          Total Earning Till date : ₹ {revenue}
+        </h2>
+        <h2 style={{ fontSize: '35px' }}>Vendor Orders</h2>
         <div className="order-cards-container">
           {orders.map((order) => (
             <div className="order-card" key={order._id}>
@@ -136,6 +146,9 @@ const VendorOrder = () => {
               </div>
               <div className="order-card-body">
                 <p>
+                  <strong>Amount :</strong> ₹{order.TotalAmount}
+                </p>
+                <p>
                   <strong>Departure Airport:</strong> {order.departureAirport}
                 </p>
                 <p>
@@ -151,6 +164,7 @@ const VendorOrder = () => {
                 <p>
                   <strong>Seat Number:</strong> {order.seatNumber}
                 </p>
+
                 <p>
                   <strong>Special Instructions:</strong>{' '}
                   {order.specialInstructions}

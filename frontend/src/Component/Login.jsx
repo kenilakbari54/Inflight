@@ -5,6 +5,7 @@ import ContactContent from './ContactContent';
 import { toast } from 'react-toastify';
 import { authContext } from './AuthContext';
 import HashLoader from 'react-spinners/HashLoader';
+import Footer from './Footer';
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -23,13 +24,16 @@ const Login = () => {
     setLoading(true);
 
     try {
-      const res = await fetch(`http://localhost:5000/api/auth/login`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+      const res = await fetch(
+        `https://inflightcatering-system.onrender.com/api/auth/login`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        }
+      );
       const result = await res.json();
       if (!res.ok) {
         throw new Error(result.message);
@@ -48,7 +52,7 @@ const Login = () => {
       toast.success(result.message);
       navigate('/');
     } catch (error) {
-      // toast.error(error.message);
+      toast.error(error.message);
       setLoading(false);
     }
   };
@@ -64,10 +68,8 @@ const Login = () => {
                 {/* main title */}
                 <div className="sb-main-title-frame">
                   <div className="sb-main-title">
-                    <span className="sb-suptitle sb-mb-30">Login</span>
-                    <h1 className="sb-mb-30">
-                      Get in <span>Touch with Aimers</span>
-                    </h1>
+                    <span className="sb-suptitle sb-mb-30">User Login</span>
+                    <h1 className="sb-mb-30">Get in Touch with AeroEats</h1>
 
                     <ul className="sb-breadcrumbs">
                       <li>
@@ -83,21 +85,7 @@ const Login = () => {
               </div>
               <div className="col-lg-5">
                 <div className="sb-contact-form-frame">
-                  <div className="sb-illustration-9">
-                    <img
-                      src="img/illustrations/envelope-1.png"
-                      alt="envelope"
-                      className="sb-envelope-1"
-                    />
-                    <img
-                      src="img/illustrations/envelope-2.png"
-                      alt="envelope"
-                      className="sb-envelope-2"
-                    />
-                    <div className="sb-cirkle-1" />
-                    <div className="sb-cirkle-2" />
-                    <div className="sb-cirkle-3" />
-                  </div>
+                  <div className="sb-illustration-9"></div>
                   <div className="sb-form-content">
                     <div className="sb-main-content">
                       <h3 className="sb-mb-30">Login</h3>
@@ -165,7 +153,7 @@ const Login = () => {
                   <div className="sb-number">01</div>
                   <div className="sb-feature-text">
                     <h3 className="sb-mb-15">Welcome</h3>
-                    <p className="sb-text">Montréal, 1510 Rue Sauvé</p>
+                    <p className="sb-text">1510 India</p>
                   </div>
                 </div>
               </div>
@@ -183,7 +171,7 @@ const Login = () => {
                   <div className="sb-number">03</div>
                   <div className="sb-feature-text">
                     <h3 className="sb-mb-15">Write</h3>
-                    <p className="sb-text">starbelly@mail.com</p>
+                    <p className="sb-text">Aeroeats@mail.com</p>
                   </div>
                 </div>
               </div>
@@ -192,49 +180,10 @@ const Login = () => {
         </section>
         {/* contact info end */}
         {/* map */}
-        <div className="sb-map-frame">
-          <div id="map" className="sb-map" />
-          <div className="sb-lock">
-            <i className="fas fa-lock" />
-          </div>
-        </div>
+
         {/* map end */}
         {/* footer */}
-        <footer>
-          <div className="container">
-            <div className="sb-footer-frame">
-              <a href="home-1.html" className="sb-logo-frame">
-                {/* logo img */}
-                <img src="img/ui/logo.svg" alt="Starbelly" />
-              </a>
-              <ul className="sb-social">
-                <li>
-                  <a href="#.">
-                    <i className="far fa-circle" />
-                  </a>
-                </li>
-                <li>
-                  <a href="#.">
-                    <i className="far fa-circle" />
-                  </a>
-                </li>
-                <li>
-                  <a href="#.">
-                    <i className="far fa-circle" />
-                  </a>
-                </li>
-                <li>
-                  <a href="#.">
-                    <i className="far fa-circle" />
-                  </a>
-                </li>
-              </ul>
-              <div className="sb-copy">
-                © late 2021 Starbelly. All Rights Reserved.
-              </div>
-            </div>
-          </div>
-        </footer>
+        <Footer />
         {/* footer end */}
       </div>
     </>

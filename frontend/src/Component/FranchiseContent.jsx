@@ -26,7 +26,7 @@ const FranchiseContent = () => {
   const fetchVendorsByCity = async (cityName) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/vendors/city/${cityName}`
+        `https://inflightcatering-system.onrender.com/api/vendors/city/${cityName}`
       );
       if (!response.ok) {
         throw new Error(`Failed to fetch vendors for city ${cityName}`);
@@ -43,7 +43,9 @@ const FranchiseContent = () => {
 
   const fetchCities = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/vendors/city');
+      const response = await fetch(
+        'https://inflightcatering-system.onrender.com/api/vendors/city'
+      );
       if (!response.ok) {
         throw new Error('Failed to fetch cities');
       }
@@ -102,10 +104,10 @@ const FranchiseContent = () => {
               borderRadius: '50px',
               height: '50px',
               fontSize: '20px',
-              width: '180px',
+              width: '200px',
             }}
           >
-            <option value="" style={{ width: '100px' }}>
+            <option value="" style={{ width: '200px' }}>
               Select an Airport
             </option>
             {cities.length > 0 ? (

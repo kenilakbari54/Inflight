@@ -12,7 +12,7 @@ const Profile = () => {
     const fetchUser = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/auth/user/${userId}`
+          `https://inflightcatering-system.onrender.com/api/auth/user/${userId}`
         );
         setUserr(response.data);
       } catch (error) {

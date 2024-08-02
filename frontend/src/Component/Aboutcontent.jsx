@@ -68,7 +68,7 @@ const Aboutcontent = () => {
                   you expect
                 </h2>
                 <p className="sb-text sb-mb-30">
-                  Welcome to <b>Aimers</b>, where exceptional service and
+                  Welcome to <b>AeroEats</b>, where exceptional service and
                   unparalleled quality come together to elevate your inflight
                   dining experience. As the leading provider of inflight
                   catering services, we pride ourselves on delivering the finest
@@ -81,17 +81,17 @@ const Aboutcontent = () => {
                   presentation.
                 </p>
                 <p className="sb-text sb-mb-60">
-                  At <b>Aimers</b>, we understand the importance of punctuality
-                  and reliability in the aviation industry. Our state-of-the-art
-                  kitchens and logistics systems are designed to meet the unique
-                  demands of inflight catering, ensuring that every meal is
-                  delivered on time and in perfect condition. Customer
-                  satisfaction is at the heart of everything we do. Our
+                  At <b>AeroEats</b>, we understand the importance of
+                  punctuality and reliability in the aviation industry. Our
+                  state-of-the-art kitchens and logistics systems are designed
+                  to meet the unique demands of inflight catering, ensuring that
+                  every meal is delivered on time and in perfect condition.
+                  Customer satisfaction is at the heart of everything we do. Our
                   dedicated support team is always ready to assist with any
                   special requests or last-minute changes, making sure that your
                   needs are met with the utmost professionalism and care.
                 </p>
-                Aimers
+                AeroEats
               </div>
             </div>
           </div>

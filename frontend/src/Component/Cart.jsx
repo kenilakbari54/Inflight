@@ -3,6 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Store } from '../Store';
 import axios from 'axios';
 import './cart.css';
+import Footer from './Footer';
+import { toast } from 'react-toastify';
 const Cart = () => {
   const navigate = useNavigate();
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -11,7 +13,7 @@ const Cart = () => {
   } = state;
   const updateCartHandler = async (item, quantity) => {
     const { data } = await axios.get(
-      `http://localhost:5000/api/vendors/menus/${item._id}`
+      `https://inflightcatering-system.onrender.com/api/vendors/menus/${item._id}`
     );
 
     ctxDispatch({
@@ -22,6 +24,7 @@ const Cart = () => {
 
   const removeItemHandler = (item) => {
     ctxDispatch({ type: 'CART_REMOVE_ITEM', payload: item });
+    toast.error('Item removed');
   };
 
   const checkoutHandler = () => {
@@ -98,6 +101,13 @@ const Cart = () => {
           </div>
         </center>
       </div>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <Footer />
     </>
   );
 };

@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import './VendorDetails.css';
 import { Store } from '../Store';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 const VendorDetails = () => {
   const { vendorId } = useParams();
   const [vendor, setVendor] = useState(null);
@@ -15,7 +16,9 @@ const VendorDetails = () => {
 
   const fetchVendorDetails = async (id) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/vendors/${id}`);
+      const response = await fetch(
+        `https://inflightcatering-system.onrender.com/api/vendors/${id}`
+      );
       if (!response.ok) {
         throw new Error(`Failed to fetch vendor details for ID ${id}`);
       }
@@ -29,7 +32,7 @@ const VendorDetails = () => {
   const fetchVendorMenus = async (id) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/vendors/menus/vendor/${id}`
+        `https://inflightcatering-system.onrender.com/api/vendors/menus/vendor/${id}`
       );
       if (!response.ok) {
         throw new Error(`Failed to fetch vendor menus for ID ${id}`);
@@ -50,7 +53,7 @@ const VendorDetails = () => {
     const quantity = existItem ? existItem.quantity + 1 : 1;
 
     const { data } = await axios.get(
-      `http://localhost:5000/api/vendors/menus/${menu._id}`
+      `https://inflightcatering-system.onrender.com/api/vendors/menus/${menu._id}`
     );
     if (data.countInStock < quantity) {
       window.alert('sorry . product is out of stock');
@@ -58,6 +61,7 @@ const VendorDetails = () => {
     }
 
     ctxDispatch({ type: 'CART_ADD_ITEM', payload: { ...menu, quantity } });
+    toast.success('Added To Cart');
   };
 
   return (

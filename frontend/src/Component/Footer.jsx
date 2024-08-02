@@ -9,7 +9,7 @@ const Footer = () => {
           <div className="sb-footer-frame">
             <a href="home-1.html" className="sb-logo-frame">
               {/* logo img */}
-              <h2>Aimers</h2>
+              <h2>AeroEats</h2>
             </a>
             <ul className="sb-social">
               <li>
@@ -34,7 +34,7 @@ const Footer = () => {
               </li>
             </ul>
             <div className="sb-copy">
-              © late 2024 Aimers. All Rights Reserved.
+              © late 2024 AeroEats . All Rights Reserved.
             </div>
           </div>
         </div>

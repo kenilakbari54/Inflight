@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { authContext } from './AuthContext';
 import './Header.css';
 import { Store } from '../Store';
+import { toast } from 'react-toastify';
 const Header = () => {
   const { user, role, token } = useContext(authContext);
   const [stateAuth, setStateAuth] = useState();
@@ -23,8 +24,9 @@ const Header = () => {
     localStorage.removeItem('user');
     localStorage.removeItem('role');
     localStorage.removeItem('token');
-    navigate('/Login');
     window.location.reload();
+    navigate('/Login');
+    toast.success('Successfully Logout');
   }
   return (
     <>
@@ -33,7 +35,7 @@ const Header = () => {
         <div className="container">
           <div className="sb-top-bar">
             <Link to="/" style={{ fontSize: '30px' }}>
-              Aimers
+              AeroEats
             </Link>
             {/* menu */}
             <div className="sb-right-side">

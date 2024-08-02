@@ -15,7 +15,7 @@ const ContactContent = () => {
                   <div className="sb-main-title">
                     <span className="sb-suptitle sb-mb-30">Login</span>
                     <h1 className="sb-mb-30">
-                      Get in <span>Touch with Aimers</span>
+                      Get in <span>Touch with AeroEats</span>
                     </h1>
 
                     <ul className="sb-breadcrumbs">
