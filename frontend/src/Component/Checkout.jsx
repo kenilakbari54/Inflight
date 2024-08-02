@@ -64,25 +64,40 @@ const Checkout = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      let config = {
-        method: 'POST',
-        maxBodyLength: Infinity,
-        url: 'https://inflightcatering-system.onrender.com/api/orders/',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        data: formData,
-      };
+      // let config = {
+      //   method: 'POST',
+      //   maxBodyLength: Infinity,
+      //   url: 'https://inflightcatering-system.onrender.com/api/orders/',
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //   },
+      //   data: formData,
+      // };
 
-      const { data } = await axios.request(config);
+      // const { data } = await axios.request(config);
 
-      console.log('Order creation response:', data);
+      // console.log('Order creation response:', data);
+      const res = await fetch(
+        `https://inflightcatering-system.onrender.com/api/orders/`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+      const { message } = await res.json();
+
+      if (!res.ok) {
+        throw new Error(message);
+      }
       toast.success('Order Placed');
 
       // Ensure the order ID is not undefined
-      if (data && data._id && data.order_id) {
+      if (res) {
         // Pass the order ID and TotalAmount to the Razorpay screen
-        handleRazorpayScreen(data._id, data.order_id, formData.TotalAmount);
+        handleRazorpayScreen(message.order_id, formData.TotalAmount);
       } else {
         throw new Error('Order ID is undefined');
       }
