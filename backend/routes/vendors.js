@@ -1,5 +1,5 @@
 import express from 'express'
-import { getAllCitiesWithVendors, getVendor, getVendorsByCity, login, menudelete, menus, menusall, menuupdate, register, vendorsmenu, vendorsmenudetail } from '../Controller/Vendor.js';
+import { getAll, getAllCitiesWithVendors, getVendor, getVendorsByCity, login, menudelete, menus, menusall, menuupdate, register, vendorsmenu, vendorsmenudetail } from '../Controller/Vendor.js';
 // import bcrypt from 'bcrypt'
 // import jwt from 'jsonwebtoken'
 // import User from '../model/User.js';
@@ -22,6 +22,7 @@ router.get('/city/:acity', getVendorsByCity);
 router.get('/city', getAllCitiesWithVendors);
 router.get('/:id', getVendor);
 
+router.get('/', getAll);
 
 export default router
 

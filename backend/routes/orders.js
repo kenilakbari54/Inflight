@@ -10,8 +10,8 @@ router.post('/', async (req, res) => {
     try {
         const order = new Order(req.body);
         const razorpay = new Razorpay({
-            key_id: `${process.env.key_id}`,
-            key_secret: `${process.env.key_secret}`,
+            key_id: process.env.key_id,
+            key_secret: process.env.key_secret,
         });
         const options = {
             amount: order.TotalAmount * 100, // Amount in smallest currency unit (e.g., paise for INR)
@@ -96,6 +96,22 @@ router.get('/', async (req, res) => {
     try {
         const orders = await Order.find();
         res.json(orders);
+    } catch (error) {
+        res.status(400).json({ message: error.message });
+    }
+});
+router.get('/total-revenue', async (req, res) => {
+    try {
+        const totalRevenue = await Order.aggregate([
+            {
+                $group: {
+                    _id: null,
+                    totalRevenue: { $sum: "$TotalAmount" }
+                }
+            }
+        ]);
+
+        res.json(totalRevenue.length > 0 ? totalRevenue[0].totalRevenue : 0);
     } catch (error) {
         res.status(400).json({ message: error.message });
     }

@@ -175,3 +175,12 @@ export const getVendor = async (req, res) => {
         res.status(500).json({ message: err.message });
     }
 }
+
+export const getAll = async (req, res) => {
+    try {
+        const vendors = await Vendor.find();
+        res.json(vendors);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};

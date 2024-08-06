@@ -28,10 +28,6 @@ app.use('/api/users', userRoutes);
 app.use('/api/vendors', vendorRoutes);
 app.use('/api/orders', orderRoutes);
 
-app.get('/',(req,res)=>{
-    res.send("running");
-}
-    )
 
 const PORT = process.env.PORT;
 // console.log(PORT)
